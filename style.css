@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --c-primary: #d81b60;
+    --c-secondary: #f8bbd0;
+    --c-accent: #ad1457;
+    --c-bg: #fff0f5;
+
+    --fs-s: 0.875rem;
+    --fs-m: 1rem;
+    --fs-l: 1.5rem;
+}
+
