@@ -1,3 +1,4 @@
+const domModalForm = document.querySelector("form");
 const domLibraryContainer = document.querySelector("#library-container");
 const library = [];
 
@@ -28,29 +29,30 @@ addBookToLibrary("Moby Dick", "Herman Melville", 635, false);
 addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 671, false);
 
 function renderBooks () {
-    for (Book of library) {
+    domLibraryContainer.innerHTML = "";
+    for (const book of library) {
         let domBookCard = document.createElement("div");
         domBookCard.classList.add("book-card");
 
         let domBookTitle = document.createElement("h2");
-        domBookTitle.textContent = Book.title;
+        domBookTitle.textContent = book.title;
         domBookCard.append(domBookTitle);
 
         let domBookSubtext = document.createElement("div");
         domBookSubtext.classList.add("book-subtext")
         let domBookAuthor = document.createElement("p");
-        domBookAuthor.textContent = Book.author;
+        domBookAuthor.textContent = book.author;
         let domSubtextDivider = document.createElement("p");
         domSubtextDivider.textContent = "•"
         let domBookPages = document.createElement("p");
-        domBookPages.textContent = `${Book.nPages} pages`;
+        domBookPages.textContent = `${book.nPages} pages`;
         domBookSubtext.append(domBookAuthor, domSubtextDivider, domBookPages);
         domBookCard.append(domBookSubtext);
 
         let domBookReadStatus = document.createElement("div");
         domBookReadStatus.innerHTML = `
             <p>Read:<p>
-            ${Book.readStatus ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="read-yes"><path d="M20 6 9 17l-5-5"/></svg>` : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="read-no"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`}
+            ${book.readStatus ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="read-yes"><path d="M20 6 9 17l-5-5"/></svg>` : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="read-no"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`}
         `;
         domBookReadStatus.classList.add("read-status-container")
         domBookCard.append(domBookReadStatus);
@@ -59,3 +61,14 @@ function renderBooks () {
     }
 };
 renderBooks();
+
+domModalForm.addEventListener("submit", () => {
+    let formData = new FormData(domModalForm);
+    let title = formData.get("title");
+    let author = formData.get("author");
+    let nPages = parseInt(formData.get("nPages"));
+    let readStatus = "true" === formData.get("readStatus");
+    
+    addBookToLibrary(title, author, nPages, readStatus);
+    renderBooks()
+});
