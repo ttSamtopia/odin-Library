@@ -1,3 +1,4 @@
+/* General Setup */
 @font-face {
     font-family: Roboto;
     src:
@@ -35,6 +36,7 @@ body {
     background-color: var(--c-bg);
 }
 
+/* Header */
 h1 {
     font-size: var(--fs-xl);
     color: var(--c-accent);
@@ -69,6 +71,7 @@ button:active {
     text-align: center;
 }
 
+/* Book Section */
 #library-container {
     width: min(1400px, 90vw);
     margin: 0 auto;
