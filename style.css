@@ -36,10 +36,37 @@ body {
 }
 
 h1 {
-    text-align: center;
-    margin: 1rem;
     font-size: var(--fs-xl);
     color: var(--c-accent);
+    margin-bottom: var(--spacing)
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: 2px solid var(--c-accent);
+    border-radius: 5px;
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    background-color: var(--c-secondary);
+    color: var(--c-accent);
+    font-weight: bold;
+}
+
+button:hover {
+    color: var(--c-primary);
+    border-color: var(--c-primary);
+    opacity: 85%;
+}
+
+button:active {
+    color: var(--c-accent);
+    border-color: var(--c-accent);
+    opacity: 100;
+}
+
+#header {
+    margin: 1rem;
+    text-align: center;
 }
 
 #library-container {
