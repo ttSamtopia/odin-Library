@@ -98,7 +98,8 @@ domLibraryContainer.addEventListener("click", (e) => {
 
 // Change read status
 domLibraryContainer.addEventListener("click", (e) => {
-    if (!e.target.closest("button").classList.contains("read-status-container")) return;
+    let clickedButton = e.target.closest("button");
+    if (!clickedButton || !clickedButton.classList.contains("read-status-container")) return;
     let bookId = e.target.closest(".book-card").dataset.id;
     let bookIndex = library.findIndex((book) => bookId == book.id);
     library[bookIndex].toggleReadStatus();

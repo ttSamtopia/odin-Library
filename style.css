@@ -170,7 +170,7 @@ button:hover {
 button:active {
     color: var(--c-accent);
     border-color: var(--c-accent);
-    opacity: 100;
+    opacity: 100%;
 }
 
 label {
