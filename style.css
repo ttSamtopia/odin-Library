@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Roboto;
+    src:
+    url(./fonts/roboto.woff2) format("woff2"),
+    url(./fonts/roboto.woff) format("woff");
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +13,6 @@
 }
 
 :root {
-    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
-
     --c-primary: #d81b60;
     --c-secondary: #f8bbd0;
     --c-accent: #ad1457;
@@ -20,6 +26,9 @@
     --fs-xl: 2rem;
 
     --spacing: 10px;
+
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    font-family: Roboto;
 }
 
 body {
