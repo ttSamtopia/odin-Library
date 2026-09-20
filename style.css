@@ -5,18 +5,31 @@
 }
 
 :root {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+
     --c-primary: #d81b60;
     --c-secondary: #f8bbd0;
     --c-accent: #ad1457;
     --c-bg: #fff0f5;
+    --c-no: red;
+    --c-yes: green;
 
     --fs-s: 0.875rem;
     --fs-m: 1rem;
     --fs-l: 1.5rem;
+    --fs-xl: 2rem;
+
+    --spacing: 10px;
 }
 
 body {
     background-color: var(--c-bg);
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem;
+    font-size: var(--fs-xl);
 }
 
 #library-container {
@@ -25,4 +38,44 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: min-content;
+    gap: var(--spacing);
+}
+
+.book-card {
+    background-color: var(--c-secondary);
+    border: 2.5px solid var(--c-accent);
+    border-radius: 10px;
+    padding: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) / 2);
+    justify-content: center;
+}
+
+h2 {
+    font-size: var(--fs-l);
+    text-align: center;
+}
+
+.book-subtext {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--spacing);
+    justify-content: center;
+    font-size: var(--fs-s);
+}
+
+.read-status-container {
+    display: flex;
+    gap: var(--spacing);
+    justify-content: center;
+    font-size: var(--fs-m);
+}
+
+.read-no {
+    stroke: var(--c-no);
+}
+
+.read-yes {
+    stroke: var(--c-yes);
 }
