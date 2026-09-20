@@ -83,10 +83,17 @@ h2 {
     font-size: var(--fs-s);
 }
 
+.book-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+}
+
 .read-status-container {
     display: flex;
     gap: var(--spacing);
     justify-content: center;
+    align-items: center;
     font-size: var(--fs-m);
 }
 
