@@ -11,8 +11,8 @@ function Book (id, title, author, nPages, readStatus) {
     this.nPages = nPages;
     this.readStatus = readStatus;
 }
-Book.prototype.info = function () {
-    return `${this.title} by ${this.author}, ${this.nPages} pages, ${this.readStatus ? "have read" : "not read yet"}`
+Book.prototype.toggleReadStatus = function () {
+    this.readStatus = !this.readStatus;
 }
 
 function addBookToLibrary (title, author, nPages, readStatus) {
@@ -93,5 +93,14 @@ domLibraryContainer.addEventListener("click", (e) => {
     let bookIndex = library.findIndex((book) => bookId == book.id);
     if(!confirm(`Are you sure you want to delete "${library[bookIndex].title}"?`)) return;
     library.splice(bookIndex, 1);
+    renderBooks();
+});
+
+// Change read status
+domLibraryContainer.addEventListener("click", (e) => {
+    if (!e.target.closest("button").classList.contains("read-status-container")) return;
+    let bookId = e.target.closest(".book-card").dataset.id;
+    let bookIndex = library.findIndex((book) => bookId == book.id);
+    library[bookIndex].toggleReadStatus();
     renderBooks();
 });
